@@ -9,6 +9,24 @@ class ShelvesPage extends React.Component {
     books: []
   };
 
+  moveBook(book, shelf) {
+    BooksAPI.update(book, shelf)
+      .then(response => {
+        console.log(response);
+        return response;
+      })
+      .then(() =>
+        this.setState((prevState, props) => ({
+          books: prevState.books.map(b => {
+            if (b.id === book.id) {
+              book.shelf = shelf;
+            }
+            return book;
+          })
+        }))
+      );
+  }
+
   componentDidMount() {
     BooksAPI.getAll()
       .then(books => this.setState(() => ({ books })))
@@ -26,6 +44,7 @@ class ShelvesPage extends React.Component {
             <Bookshelf
               key={tag}
               shelfName={name}
+              moveBook={moveBook}
               books={this.state.books.filter(book => tag === book.shelf)}
             />
           ))}
