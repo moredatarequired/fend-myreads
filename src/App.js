@@ -1,13 +1,11 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-// import * as BooksAPI from './BooksAPI'
-import './App.css'
-import SearchPage from './SearchPage'
-import ShelvesPage from './ShelvesPage'
+import React from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import SearchPage from "./SearchPage";
+import ShelvesPage from "./ShelvesPage";
 
 class BooksApp extends React.Component {
-  state = {
-  }
+  state = {};
 
   render() {
     return (
@@ -15,8 +13,8 @@ class BooksApp extends React.Component {
         <Route exact path="/" component={ShelvesPage} />
         <Route path="/search" component={SearchPage} />
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;

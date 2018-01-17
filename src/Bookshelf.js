@@ -1,5 +1,5 @@
-import React from 'react'
-import Book from './Book.js'
+import React from "react";
+import Book from "./Book.js";
 
 function Bookshelf(props) {
   return (
@@ -7,11 +7,15 @@ function Bookshelf(props) {
       <h2 className="bookshelf-title">{props.shelfName}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {props.books.map(book => <li><Book book={book} /></li>)}
+          {props.books.map(book => (
+            <li>
+              <Book book={book} />
+            </li>
+          ))}
         </ol>
       </div>
     </div>
-  )
+  );
 }
 
-export default Bookshelf
+export default Bookshelf;
