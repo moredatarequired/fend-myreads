@@ -29,6 +29,7 @@ class ShelvesPage extends React.Component {
         <div className="list-books-content">
           {shelves.map(({ name, tag }) => (
             <Bookshelf
+              key={tag}
               shelfName={name}
               books={this.state.books.filter(book => tag === book.shelf)}
             />
