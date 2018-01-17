@@ -7,12 +7,7 @@ function Bookshelf(props) {
       <h2 className="bookshelf-title">{props.shelfName}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          <li>
-            <Book book={props.books[0]} />
-          </li>
-          <li>
-            <Book book={props.books[1]} />
-          </li>
+          {props.books.map(book => <li><Book book={book} /></li>)}
         </ol>
       </div>
     </div>
