@@ -2,12 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import Bookshelf from "./Bookshelf";
-
-const shelves = [
-  { name: "Currently Reading", tag: "currentlyReading" },
-  { name: "Want to Read", tag: "wantToRead" },
-  { name: "Read", tag: "read" }
-];
+import * as Tags from "./util/tags.js";
 
 class ShelvesPage extends React.Component {
   state = {
@@ -27,7 +22,7 @@ class ShelvesPage extends React.Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          {shelves.map(({ name, tag }) => (
+          {Tags.shelfNames.map(({ name, tag }) => (
             <Bookshelf
               key={tag}
               shelfName={name}
