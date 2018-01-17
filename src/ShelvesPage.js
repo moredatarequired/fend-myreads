@@ -9,7 +9,7 @@ class ShelvesPage extends React.Component {
     books: []
   };
 
-  moveBook(book, shelf) {
+  moveBook = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(response => {
         console.log(response);
@@ -44,7 +44,7 @@ class ShelvesPage extends React.Component {
             <Bookshelf
               key={tag}
               shelfName={name}
-              moveBook={moveBook}
+              moveBook={this.moveBook}
               books={this.state.books.filter(book => tag === book.shelf)}
             />
           ))}

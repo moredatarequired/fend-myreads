@@ -30,7 +30,7 @@ function Book(props) {
             backgroundImage: `url("${props.book.imageLinks.thumbnail}")`
           }}
         />
-        <ShelfChanger book={props.book} />
+        <ShelfChanger book={props.book} moveBook={props.moveBook} />
       </div>
       <div className="book-title">{formatTitle(props.book.title, props.book.subtitle)}</div>
       <div className="book-authors">{formatAuthor(props.book.authors)}</div>

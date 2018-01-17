@@ -2,9 +2,13 @@ import React from "react";
 import * as Tags from "./util/tags.js";
 
 function ShelfChanger(props) {
+  function onSelect(e) {
+    console.log(e);
+  }
+
   return (
     <div className="book-shelf-changer">
-      <select>
+      <select onChange={onSelect}>
         <option value="none" disabled>
           Move to...
         </option>
