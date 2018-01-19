@@ -19,14 +19,14 @@ class ShelvesPage extends React.Component {
             }
             return b;
           }).filter(b => b.shelf !== "none")
-        }))
-      );
+        })))
+      .catch(response => console.error(`Unable to set shelf for ${book.id} to ${shelf}`, response));
   }
 
   componentDidMount() {
     BooksAPI.getAll()
       .then(books => this.setState(() => ({ books })))
-      .catch(response => console.log("oops", response));
+      .catch(response => console.error("Unable to get booklist from server", response));
   }
 
   render() {
