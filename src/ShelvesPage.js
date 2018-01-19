@@ -10,10 +10,6 @@ class ShelvesPage extends React.Component {
   };
 
   moveBook = (book, shelf) => {
-    if (shelf === "none") {
-      this.setState({ books: this.state.books.filter(b => b.id !== book.id) });
-      return;
-    }
     BooksAPI.update(book, shelf)
       .then(() =>
         this.setState((prevState, props) => ({
@@ -22,7 +18,7 @@ class ShelvesPage extends React.Component {
               b.shelf = shelf;
             }
             return b;
-          })
+          }).filter(b => b.shelf !== "none")
         }))
       );
   }
