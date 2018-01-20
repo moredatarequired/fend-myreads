@@ -27,7 +27,7 @@ function Book(props) {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url("${props.book.imageLinks.thumbnail}")`
+            backgroundImage: props.book.imageLinks ? `url("${props.book.imageLinks.thumbnail}")` : "none"
           }}
         />
         <ShelfChanger book={props.book} moveBook={props.moveBook} />
